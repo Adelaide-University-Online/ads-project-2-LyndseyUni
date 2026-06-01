@@ -2,8 +2,8 @@ import java.io.File;
 import java.util.Scanner;
 
 /**
- * File: Deck.java
- * Description: Assignment 2.1 Applied Data Structures
+ * File: Runner.java
+ * Description: Assignment 2.2 Applied Data Structures
  * Author: Lyndsey Threlfall
  * Student ID: a3005482
  * Email ID: a3005482

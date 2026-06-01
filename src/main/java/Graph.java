@@ -1,8 +1,8 @@
 import java.util.*;
 
 /**
- * File: Deck.java
- * Description: Assignment 2.1 Applied Data Structures
+ * File: Graph.java
+ * Description: Assignment 2.2 Applied Data Structures
  * Author: Lyndsey Threlfall
  * Student ID: a3005482
  * Email ID: a3005482
