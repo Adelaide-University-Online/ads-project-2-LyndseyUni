@@ -13,6 +13,7 @@ import java.util.Scanner;
  **/
 
 public class Runner {
+
     public static void main(String[] args) throws Exception {
 
         String filename = "XBIT.txt";
@@ -29,6 +30,23 @@ public class Runner {
 
         for (String course : courses) {
             graph.addCourse(course.trim());
+        }
+
+        while (file.hasNextLine()) {
+
+            String line = file.nextLine();
+
+            String[] parts = line.split(",");
+
+            String course = parts[0].trim();
+
+            for (int i = 1; i < parts.length; i++) {
+
+                String prerequisite = parts[i].trim();
+
+                graph.addEdge(prerequisite, course);
+
+            }
         }
 
         graph.printGraph();

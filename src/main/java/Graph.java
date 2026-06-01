@@ -28,6 +28,11 @@ public class Graph {
     }
 
     public void addEdge(String prerequisite, String course) {
+        if (!adjacencyList.containsKey(prerequisite)) {
+            System.out.println("Missing prerequisite: " + prerequisite);
+            return;
+        }
+
         adjacencyList.get(prerequisite).add(course);
     }
 }
