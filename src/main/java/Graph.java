@@ -26,4 +26,8 @@ public class Graph {
     public void printGraph() {
         System.out.println(adjacencyList);
     }
+
+    public void addEdge(String prerequisite, String course) {
+        adjacencyList.get(prerequisite).add(course);
+    }
 }
