@@ -1,20 +1,38 @@
+import java.io.File;
+import java.util.Scanner;
+
 /**
-* File: filename.java
-* Description: A brief description of this Java module.
-* Author: Steve Jobs
-* Student ID: 12345678
-* Email ID: jobst007
-* AI Tool Used: Y/N (This includes all AI Tools e.g. ChatGPT, Microsoft or Github Copiliot etc... Please leave blank if you do not wish to share this information)
-* This is my own work as defined by
-*    the University's Academic Integrity Policy.
-**/
+ * File: Deck.java
+ * Description: Assignment 2.1 Applied Data Structures
+ * Author: Lyndsey Threlfall
+ * Student ID: a3005482
+ * Email ID: a3005482
+ * AI Tool Used: Y
+ * This is my own work as defined by
+ *    the University's Academic Integrity Policy.
+ **/
+
 public class Runner {
-    
-    public static void main(String[] args) {
-        System.out.println("Welcome to ADS Assignment Starter!");
-        System.out.println("This is a basic Java project template.");
-        System.out.println("You can modify this file to implement your assignment requirements.");
-        
+    public static void main(String[] args) throws Exception {
+
+        String filename = "XBIT.txt";
+
+        Scanner file = new Scanner(new File(filename));
+
+        String firstLine = file.nextLine();
+
+        System.out.println(firstLine);
+
+        String[] courses = firstLine.split(",");
+
+        Graph graph = new Graph();
+
+        for (String course : courses) {
+            graph.addCourse(course.trim());
+        }
+
+        graph.printGraph();
+
+        file.close();
     }
-    
 }
