@@ -1,4 +1,5 @@
 import java.io.File;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -50,6 +51,10 @@ public class Runner {
         }
 
         graph.printGraph();
+
+        Map<String, Integer> indegrees = graph.calculateIndegrees();
+
+        System.out.println(indegrees);
 
         file.close();
     }

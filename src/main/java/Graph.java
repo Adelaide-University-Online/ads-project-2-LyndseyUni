@@ -29,10 +29,32 @@ public class Graph {
 
     public void addEdge(String prerequisite, String course) {
         if (!adjacencyList.containsKey(prerequisite)) {
-            System.out.println("Missing prerequisite: " + prerequisite);
+            System.out.println("Warning: prerequisite not found: " + prerequisite);
             return;
         }
 
         adjacencyList.get(prerequisite).add(course);
+    }
+
+    public Map<String, Integer> calculateIndegrees() {
+
+        Map<String, Integer> indegrees = new HashMap<>();
+
+        for (String course : adjacencyList.keySet()) {
+            indegrees.put(course, 0);
+        }
+
+        for (String course : adjacencyList.keySet()) {
+
+            for (String neighbour : adjacencyList.get(course)) {
+
+                indegrees.put(
+                        neighbour,
+                        indegrees.get(neighbour) + 1
+                );
+            }
+        }
+
+        return indegrees;
     }
 }
