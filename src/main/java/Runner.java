@@ -76,30 +76,47 @@ public class Runner {
 
         Map<String, ArrayList<String>> adj = graph.getAdjacencyList();
 
+        int studyPeriod = 1;
+
         while (!queue.isEmpty()) {
 
-            String current = queue.remove();
+            System.out.println("\nStudy Period " + studyPeriod);
 
-            order.add(current);
+            int coursesThisPeriod = 0;
 
-            for (String neighbour : adj.get(current)) {
+            while (!queue.isEmpty() && coursesThisPeriod < maxCourses) {
 
-                indegrees.put(
-                        neighbour,
-                        indegrees.get(neighbour) -1
-                );
+                String current = queue.remove();
 
-                if (indegrees.get(neighbour) == 0) {
-                    queue.add(neighbour);
+                order.add(current);
+
+                System.out.println(current);
+
+                coursesThisPeriod++;
+
+                for (String neighbour : adj.get(current)) {
+
+                    indegrees.put(
+                            neighbour,
+                            indegrees.get(neighbour) - 1
+                    );
+
+                    if (indegrees.get(neighbour) == 0) {
+                        queue.add(neighbour);
+                    }
+
                 }
 
             }
+
+            studyPeriod++;
+
+            System.out.println(order);
+            System.out.println("Courses in graph: " + graph.getAdjacencyList().size());
+            System.out.println("Courses in order: " + order.size());
+
+            file.close();
         }
-
-        System.out.println(order);
-        System.out.println("Courses in graph: " + graph.getAdjacencyList().size());
-        System.out.println("Courses in order: " + order.size());
-
-        file.close();
     }
+
 }
