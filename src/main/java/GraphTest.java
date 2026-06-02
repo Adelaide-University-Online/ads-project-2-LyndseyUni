@@ -1,3 +1,4 @@
+import com.sun.source.tree.AssertTree;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -47,5 +48,41 @@ public class GraphTest {
         assertEquals(0, indegrees.get("A"));
         assertEquals(1, indegrees.get("B"));
 
+    }
+
+    @Test
+    public void graphsWithSameCoursesAreEqual() {
+
+        Graph graph1 = new Graph();
+        Graph graph2 = new Graph();
+
+        graph1.addCourse("COMP1043");
+        graph2.addCourse("COMP1043");
+
+        assertEquals(graph1, graph2);
+    }
+
+    @Test
+    public void equalGraphsHaveSameHashCode() {
+
+        Graph graph1 = new Graph();
+        Graph graph2 = new Graph();
+
+        assertEquals(
+                graph1.hashCode(),
+                graph2.hashCode()
+        );
+    }
+
+    @Test
+    public void toStringContainsCourseName() {
+
+        Graph graph = new Graph();
+
+        graph.addCourse("COMP1043");
+
+        assertTrue(
+                graph.toString().contains("COMP1043")
+        );
     }
 }
