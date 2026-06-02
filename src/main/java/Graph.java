@@ -57,4 +57,8 @@ public class Graph {
 
         return indegrees;
     }
+
+    public Map<String, ArrayList<String>> getAdjacencyList() {
+        return adjacencyList;
+    }
 }
