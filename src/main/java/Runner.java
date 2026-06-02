@@ -56,11 +56,7 @@ public class Runner {
             }
         }
 
-        graph.printGraph();
-
         Map<String, Integer> indegrees = graph.calculateIndegrees();
-
-        System.out.println(indegrees);
 
         Queue<String> queue = new LinkedList<>();
 
@@ -69,8 +65,6 @@ public class Runner {
                 queue.add(course);
             }
         }
-
-        System.out.println(queue);
 
         ArrayList<String> order = new ArrayList<>();
 
@@ -111,7 +105,6 @@ public class Runner {
 
             studyPeriod++;
 
-            System.out.println(order);
             System.out.println("Courses in graph: " + graph.getAdjacencyList().size());
             System.out.println("Courses in order: " + order.size());
 
