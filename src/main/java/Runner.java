@@ -1,6 +1,6 @@
 import java.io.File;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
+
 
 /**
  * File: Runner.java
@@ -55,6 +55,44 @@ public class Runner {
         Map<String, Integer> indegrees = graph.calculateIndegrees();
 
         System.out.println(indegrees);
+
+        Queue<String> queue = new LinkedList<>();
+
+        for (String course : indegrees.keySet()) {
+            if (indegrees.get(course) == 0) {
+                queue.add(course);
+            }
+        }
+
+        System.out.println(queue);
+
+        ArrayList<String> order = new ArrayList<>();
+
+        Map<String, ArrayList<String>> adj = graph.getAdjacencyList();
+
+        while (!queue.isEmpty()) {
+
+            String current = queue.remove();
+
+            order.add(current);
+
+            for (String neighbour : adj.get(current)) {
+
+                indegrees.put(
+                        neighbour,
+                        indegrees.get(neighbour) -1
+                );
+
+                if (indegrees.get(neighbour) == 0) {
+                    queue.add(neighbour);
+                }
+
+            }
+        }
+
+        System.out.println(order);
+        System.out.println("Courses in graph: " + graph.getAdjacencyList().size());
+        System.out.println("Courses in order: " + order.size());
 
         file.close();
     }
