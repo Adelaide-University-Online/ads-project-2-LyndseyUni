@@ -1,7 +1,6 @@
 import java.io.File;
 import java.util.*;
 
-
 /**
  * File: Runner.java
  * Description: Assignment 2.2 Applied Data Structures
@@ -19,11 +18,12 @@ public class Runner {
 
         Scanner keyboard = new Scanner(System.in);
 
+        System.out.println("Enter filename: ");
+        String filename = keyboard.nextLine();
+
         System.out.print("Maximum courses per study period: ");
         int maxCourses = keyboard.nextInt();
         System.out.println("Max courses = " + maxCourses);
-
-        String filename = "XBIT.txt";
 
         Scanner file = new Scanner(new File(filename));
 

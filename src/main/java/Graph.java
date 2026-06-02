@@ -61,4 +61,30 @@ public class Graph {
     public Map<String, ArrayList<String>> getAdjacencyList() {
         return adjacencyList;
     }
+
+    @Override
+    public String toString() {
+        return adjacencyList.toString();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+
+        if (this == obj) {
+            return true;
+        }
+
+        if (!(obj instanceof Graph)) {
+            return false;
+        }
+
+        Graph other = (Graph) obj;
+
+        return adjacencyList.equals(other.adjacencyList);
+    }
+
+    @Override
+    public int hashCode() {
+        return adjacencyList.hashCode();
+    }
 }
