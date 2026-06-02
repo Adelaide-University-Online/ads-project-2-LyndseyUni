@@ -17,6 +17,12 @@ public class Runner {
 
     public static void main(String[] args) throws Exception {
 
+        Scanner keyboard = new Scanner(System.in);
+
+        System.out.print("Maximum courses per study period: ");
+        int maxCourses = keyboard.nextInt();
+        System.out.println("Max courses = " + maxCourses);
+
         String filename = "XBIT.txt";
 
         Scanner file = new Scanner(new File(filename));
