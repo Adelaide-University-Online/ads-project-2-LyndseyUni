@@ -13,6 +13,8 @@ import java.util.*;
 
 public class Graph {
 
+    // Stores the graph as an adjacency list where each course maps
+    // to a list of courses that depend on it
     private Map<String, ArrayList<String>> adjacencyList;
 
     public Graph() {
