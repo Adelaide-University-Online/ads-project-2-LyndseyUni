@@ -71,8 +71,15 @@ public class Runner {
         // Calculate the indegree for each course
         Map<String, Integer> indegrees = graph.calculateIndegrees();
 
-        // Queue used for topological sorting
-        Queue<String> queue = new LinkedList<>();
+        // Priority Queue used to schedule available courses.
+        // Courses that unlock the greatest number of dependent
+        // courses are processed first
+        PriorityQueue<String> queue =
+                new PriorityQueue<>(
+                        (a,b) ->
+                        graph.getAdjacencyList().get(b).size()
+                        - graph.getAdjacencyList().get(a).size()
+                );
 
         // Add all courses with no pre-requisites to the queue
         for (String course : indegrees.keySet()) {
