@@ -56,9 +56,7 @@ public class Graph {
 
         // For loop to count all incoming edges for each course
         for (String course : adjacencyList.keySet()) {
-
             for (String neighbour : adjacencyList.get(course)) {
-
                 indegrees.put(
                         neighbour,
                         indegrees.get(neighbour) + 1
